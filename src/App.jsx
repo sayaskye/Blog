@@ -3,7 +3,7 @@ import React from 'react'
 function App() {
 
   return (
-    <div className="">
+    <div className="h-[100rem] bg-gray-600">
       test
     </div>
   )
