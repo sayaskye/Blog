@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from '../common/Navbar';
 const Hero = ({exist}) => {
     return (
-        <div className="bg-home-background bg-cover bg-bottom w-screen ">
+        <div className="bg-home-background bg-cover bg-bottom ">
             <div className="container mx-auto py-16 flex flex-col">
                 <Navbar/>
                 {exist&&
@@ -12,7 +12,7 @@ const Hero = ({exist}) => {
                     </div>
                 }
             </div>
-            <hr className="border-main-blue border-2"/>
+            <hr className="border-main-blue border-[1px]"/>
         </div>
     );
 }
