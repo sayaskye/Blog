@@ -1,11 +1,10 @@
 import React from 'react'
+import Routes from "./routes";
 
 function App() {
 
   return (
-    <div className="h-[100rem] bg-gray-600">
-      test
-    </div>
+    <Routes />
   )
 }
 
