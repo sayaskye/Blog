@@ -9,9 +9,9 @@ const Posts = () => {
         <div className="bg-gray-600">
             <div className="container mx-auto">
                 <Title title={titulo} />
-                <div className="flex flex-row pb-8 justify-between">
+                <div className="flex flex-col lg:flex-row pb-8 justify-between">
                     <PostsSection/>
-                   {/* <SearchSection/> */}
+                    <SearchSection/> 
                 </div>
             </div>
         </div>
