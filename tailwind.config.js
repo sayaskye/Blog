@@ -4,6 +4,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      screens: {
+        'ssm': '450px',
+      },
       colors:{
         main:{
           blue: '#3AB5EF',

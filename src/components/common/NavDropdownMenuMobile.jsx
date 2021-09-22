@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 import { baseUrl } from '../../constants';
 
-const NavDropdownButton = ({name,cat,subcat}) => {
+const NavDropdownMenuMobile = ({name,cat,subcat}) => {
+    const [isOpen, setIsOpen] = useState(false)
     let categories = [
         {
         _id: "6149659cfaeef34e94c720fe",
@@ -1051,41 +1052,44 @@ const NavDropdownButton = ({name,cat,subcat}) => {
         }
         ]
     const category = categories.map((category) =>
-        <li key={category._id} className="">
+        <div key={category._id} className="">
             <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap border-[1px] border-black/90 hover:border-white " to={`/categories/${category.slug}`}>
                 { category.name }
             </Link>
-        </li>
+        </div>
     );
 
     const subCategory = subCategories.map((subCategory) =>
-        <li key={subCategory._id} className="">
+        <div key={subCategory._id} className="">
             <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap border-[1px] border-black/90 hover:border-white " to={`/subcategories/${subCategory.slug}`}>
-                <span className="text-left">
                 { subCategory.name }
-                </span>
             </Link>
-        </li>
+        </div>
     );
-    return (
-        <div className="border-black border-[1px] flex bg-gray-700 mx-2 my-2 rounded-lg text-center justify-center items-center p-4 hover:scale-[1.01] duration-500 transition ease-in hover:bg-main-blue/40 hover:border-white z-10 group">
 
-            <div className="inline-block relative text-white">
-                <button className="font-semibold  rounded inline-flex items-center">
+    const subMenu=()=>{
+        setIsOpen(!isOpen);
+    }
+
+    return (
+        <div className="border-black border-[1px]  bg-gray-700 mx-2 my-2 rounded-lg text-center justify-center items-center p-4 hover:scale-[1.01] duration-500 transition ease-in hover:bg-main-blue/40 hover:border-white z-10 ">
+
+            <div className="  text-white">
+                <button className="font-semibold  rounded inline-flex items-center" onClick={subMenu}>
                     <span className="mr-1">{name}</span>
                     <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/> 
                     </svg>
                 </button>
-                {cat &&
-                    <ul className="absolute hidden group-hover:inline lg:group-hover:block bg-gray-700  ">
+                {cat && isOpen &&
+                    <div className=" bg-gray-700  mt-8">
                         {category}
-                    </ul>
+                    </div>
                 }
-                {subcat &&
-                    <ul className="absolute hidden group-hover:inline lg:group-hover:block bg-gray-700  ">
+                {subcat && isOpen &&
+                    <div className=" bg-gray-700  mt-8">
                         {subCategory}
-                    </ul>
+                    </div>
                 }
             </div>
 
@@ -1093,4 +1097,4 @@ const NavDropdownButton = ({name,cat,subcat}) => {
     );
 }
  
-export default NavDropdownButton;
+export default NavDropdownMenuMobile;
