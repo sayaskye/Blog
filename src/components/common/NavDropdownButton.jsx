@@ -1052,7 +1052,7 @@ const NavDropdownButton = ({name,cat,subcat}) => {
         ]
     const category = categories.map((category) =>
         <li key={category._id} className="">
-            <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap border-[1px] border-black/90 hover:border-white " to={`/categories/${category.slug}`}>
+            <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap  " to={`/categories/${category.slug}`}>
                 { category.name }
             </Link>
         </li>
@@ -1060,7 +1060,7 @@ const NavDropdownButton = ({name,cat,subcat}) => {
 
     const subCategory = subCategories.map((subCategory) =>
         <li key={subCategory._id} className="">
-            <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap border-[1px] border-black/90 hover:border-white " to={`/subcategories/${subCategory.slug}`}>
+            <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap  " to={`/subcategories/${subCategory.slug}`}>
                 <span className="text-left">
                 { subCategory.name }
                 </span>
