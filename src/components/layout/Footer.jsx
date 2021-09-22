@@ -20,12 +20,12 @@ const Footer = () => {
                 </button>
                 <hr className="border-white border-[1px]"/>
 
-                <div className="flex justify-evenly my-10">
+                <div className="flex flex-col md:flex-row items-center justify-evenly my-10">
                     <div className="flex items-center justify-items-center">
                         <span className=" font-bold text-xl "> &copy; {copy} Andrés Cazares</span>
                     </div>
 
-                    <div className="flex items-center justify-items-center">
+                    <div className="flex  items-center justify-items-center">
                         <FooterSocial route="/LinkedinFooter.svg" alt="Linkedin" link="https://www.linkedin.com/in/andres-cazares-web/"></FooterSocial>
                         <FooterSocial route="/YoutubeFooter.svg" alt="Youtube" link="https://www.youtube.com/channel/UC7ct6s_unpGb1TSM6xJgUwA"></FooterSocial>
                         <FooterSocial route="/TwitterFooter.svg" alt="Twitter" link="https://twitter.com/ChaoCazares"></FooterSocial>
