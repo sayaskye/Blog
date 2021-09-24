@@ -16,7 +16,7 @@ const PostBigItem = ({title, excerpt, date, author, img, slug}) => {
 
                 <div className="flex flex-col ssm:flex-row justify-between  my-2">
                     <span className="text-gray-400 capitalize"><span className="border-dashed border-b-[1px] border-gray-400/40">{date}</span></span>
-                    <span className=" text-white">Publicado por: {author}</span>
+                    <span className=" text-white">Publicado por: {author ? author : "Andrés Cazares" }</span>
                 </div>
 
             </div>

@@ -17,7 +17,6 @@ const useArticlesStore = create(
         },
         getArticlesByCat : async (slug)=>{
             try {
-                console.log(slug);
                 set({isLoading:true, errorMessage:"", hasError:false,})
                 const articlesResult = await apiCall({url:`${baseUrl}/categories/${slug}?_limit=${get().limit}&_sort=createdAt:DESC`})
                 set({articles:articlesResult.articles})
@@ -32,7 +31,6 @@ const useArticlesStore = create(
                 set({isLoading:true, errorMessage:"", hasError:false,})
                 const articlesResult = await apiCall({url:`${baseUrl}/subcategories/${slug}?_limit=${get().limit}`})
                 set({articles:articlesResult.articles})
-                console.log(get().articles);
             } catch (error) {
                 set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión x..."})
             } finally {
