@@ -29,7 +29,7 @@ const PostsSection = () => {
     if(hasError){return errorMessage}
     
     return (
-        <div className="rounded-2xl bg-main-blue/10 w-auto lg:w-[75%] flex flex-col justify-center items-center pb-7">
+        <div className="rounded-2xl bg-main-blue/10 w-auto flex flex-col justify-center items-center pb-7">
             {isLoading?"Cargando...":articlesToShow}
             <ButtonLoadMore/>
         </div>

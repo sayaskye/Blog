@@ -1,10 +1,10 @@
 import React from 'react'
-const Post = () => {
+const About = () => {
     return ( 
         <div>
-            Pagina dinamica: 
+            About 
         </div> 
     );
 }
  
-export default Post;
+export default About;

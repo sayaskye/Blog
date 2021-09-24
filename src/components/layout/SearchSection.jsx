@@ -28,7 +28,7 @@ const SearchSection = () => {
     if(hasError){return errorMessage}
 
     return (
-        <div className="rounded-2xl bg-main-blue/10 w-auto lg:w-[24%] lg:h-auto mt-8 lg:mt-0 flex flex-col">
+        <div className="rounded-2xl bg-main-blue/10 w-auto   mt-8 lg:mt-0 flex flex-col">
             <FormSearch/>
             <span className=" text-white text-2xl text-center mt-8">Destacados</span>
             {isLoading?"Cargando...":articlesToShow}

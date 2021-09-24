@@ -10,8 +10,12 @@ const Posts = () => {
             <div className="container mx-auto">
                 <Title title={titulo} />
                 <div className="flex flex-col lg:flex-row pb-8 justify-between">
-                    <PostsSection/>
-                    <SearchSection/> 
+                    <div className="w-auto lg:w-[75%]">
+                        <PostsSection/>
+                    </div>
+                    <div className="w-auto lg:w-[24%]">
+                        <SearchSection/> 
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Switch, Link, BrowserRouter as Router } from "react-router-dom";
 import Home from "../views/Home";
+import PostsSlug from "../views/Dynamic/PostsSlug";
 import ScrollToTop from '../components/hooks/ScrollToTop'
 
 export default function Routes() {
@@ -8,7 +9,12 @@ export default function Routes() {
     <Router>
       <ScrollToTop/>
       <Switch>
-        <Route path="/" exact component={Home} />
+        <Route path="/" exact>
+          <Home/>
+        </Route>
+        <Route path="/articles/:slug">
+          <PostsSlug/>
+        </Route>
       </Switch>
     </Router>
   );
