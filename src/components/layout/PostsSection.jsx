@@ -10,9 +10,7 @@ const PostsSection = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
         articles:state.articles, getArticles:state.getArticles, isLoading:state.isLoading, errorMessage:state.errorMessage, hasError:state.hasError, limit:state.limit
     }))
-    useEffect(() => {
-        getArticles().catch(null)
-    }, [limit])
+    
     let articlesFetch = articles
     
     const articlesToShow = articlesFetch.map((article) =>

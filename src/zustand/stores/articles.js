@@ -7,12 +7,34 @@ const useArticlesStore = create(
         getArticles : async ()=>{
             try {
                 set({isLoading:true, errorMessage:"", hasError:false,})
-                get({})
                 const articlesResult = await apiCall({url:`${baseUrl}/articles?_limit=${get().limit}&_sort=createdAt:DESC`})
-                //console.log(articlesResult);
                 set({articles:articlesResult})
             } catch (error) {
                 set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión..."})
+            } finally {
+                set({isLoading:false})
+            }
+        },
+        getArticlesByCat : async (slug)=>{
+            try {
+                console.log(slug);
+                set({isLoading:true, errorMessage:"", hasError:false,})
+                const articlesResult = await apiCall({url:`${baseUrl}/categories/${slug}?_limit=${get().limit}&_sort=createdAt:DESC`})
+                set({articles:articlesResult.articles})
+            } catch (error) {
+                set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión s..."})
+            } finally {
+                set({isLoading:false})
+            }
+        },
+        getArticlesBySubCat : async (slug)=>{
+            try {
+                set({isLoading:true, errorMessage:"", hasError:false,})
+                const articlesResult = await apiCall({url:`${baseUrl}/subcategories/${slug}?_limit=${get().limit}`})
+                set({articles:articlesResult.articles})
+                console.log(get().articles);
+            } catch (error) {
+                set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión x..."})
             } finally {
                 set({isLoading:false})
             }

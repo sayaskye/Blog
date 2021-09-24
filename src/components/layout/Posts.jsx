@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Title from '../common/Title';
 import PostsSection from './PostsSection';
 import SearchSection from './SearchSection'
+import useArticlesStore from '../../zustand/stores/articles';
 
 const Posts = () => {
+
     let titulo="Blog"
     return (
         <div className="bg-gray-600">
