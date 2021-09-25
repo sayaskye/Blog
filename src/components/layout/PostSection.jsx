@@ -5,10 +5,11 @@ import format from 'date-fns/format';
 import { es } from 'date-fns/locale'
 import { Remarkable } from 'remarkable';
 import DOMPurify from 'dompurify'
+import PostLoadingSkelleton from '../common/PostLoadingSkelleton';
 
 const PostSection = () => {
     const {post} = usePostStore(state=>({post:state.post}))
-    if (post?.author?.name===undefined) return <p>Cargando post section...</p> 
+    if (post?.author?.name===undefined) return <PostLoadingSkelleton/> 
     const md = new Remarkable({
         html:true, 
     });

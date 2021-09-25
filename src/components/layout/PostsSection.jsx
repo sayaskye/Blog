@@ -5,6 +5,7 @@ import format from 'date-fns/format';
 import { es } from 'date-fns/locale'
 import useArticlesStore from '../../zustand/stores/articles';
 import shallow from 'zustand/shallow'
+import PostBigItemSkelleton from '../common/PostBigItemSkelleton';
 
 const PostsSection = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
@@ -28,7 +29,7 @@ const PostsSection = () => {
     
     return (
         <div className="rounded-2xl bg-main-blue/10 w-auto flex flex-col justify-center items-center pb-7">
-            {isLoading?"Cargando...":articlesToShow}
+            { isLoading?<PostBigItemSkelleton/>:articlesToShow }
             <ButtonLoadMore/>
         </div>
     );

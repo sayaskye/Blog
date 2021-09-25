@@ -29,7 +29,7 @@ const useArticlesStore = create(
         getArticlesBySubCat : async (slug)=>{
             try {
                 set({isLoading:true, errorMessage:"", hasError:false,})
-                const articlesResult = await apiCall({url:`${baseUrl}/subcategories/${slug}?_limit=${get().limit}`})
+                const articlesResult = await apiCall({url:`${baseUrl}/subcategories/${slug}?_limit=${get().limit}&_sort=createdAt:DESC`})
                 set({articles:articlesResult.articles})
             } catch (error) {
                 set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión x..."})

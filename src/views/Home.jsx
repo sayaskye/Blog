@@ -13,7 +13,13 @@ const Home = () => {
     }, [limit])
     return ( 
         <>
-            <Hero exist={true}/>   
+            <Hero exist={true}/>
+            {isLoading && 
+                <div className="bg-gray-600 flex flex-col justify-center items-center ">
+                    <span className="text-red-400 text-5xl">Aviso!</span>
+                    <span className="text-4xl container text-white mx-auto">La primera carga puede tardar aproximadamente 20s si el servidor esta hibernando, disculpa las molestias...</span>
+                </div>
+            }   
             <Posts/>
             <Footer/>
         </> 

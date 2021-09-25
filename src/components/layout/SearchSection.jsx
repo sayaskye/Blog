@@ -5,6 +5,7 @@ import format from 'date-fns/format';
 import { es } from 'date-fns/locale'
 import useRecomendedStore from '../../zustand/stores/recomended';
 import shallow from 'zustand/shallow'
+import PostSmallItemSkelleton from '../common/PostSmallItemSkelleton';
 
 const SearchSection = () => {
     const {recomended, getRecomended, isLoading, errorMessage, hasError, limit} = useRecomendedStore(state => ({
@@ -32,7 +33,7 @@ const SearchSection = () => {
         <div className="rounded-2xl bg-main-blue/10 w-auto   mt-8 lg:mt-0 flex flex-col">
             <FormSearch/>
             <span className=" text-white text-2xl text-center mt-8">Destacados</span>
-            {isLoading?"Cargando...":articlesToShow}
+            { isLoading?<PostSmallItemSkelleton/>:articlesToShow }
         </div>
     );
 }
