@@ -4,18 +4,22 @@ import {baseUrl} from '../../constants'
 
 const useGlobalArticlesStore = create(
     (set,get)=>({
-        getArticles : async ()=>{
+        getArticles : async (search)=>{
             try {
-                set({isLoading:true, errorMessage:"", hasError:false,})
-                const articlesResult = await apiCall({url:`${baseUrl}/articles`})
-                set({articles:articlesResult})
+                set({isLoading:true, errorMessage:"", hasError:false, override:true})
+                const articlesResult = await apiCall({url:`${baseUrl}/articles?title_contains=${search}`})
+                set({articlesFiltered:articlesResult})
             } catch (error) {
-                set({articles:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión..."})
+                set({articlesFiltered:[], override:false, hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión..."})
             } finally {
-                set({isLoading:false})
+                set({isLoading:false, })
             }
         },
-        articles:[],
+        falseOverride:()=>{
+            set({override:false})
+        },
+        articlesFiltered:[],
+        override:false,
         addLimit:() => set((state) => ({ limit: state.limit + 4 })),
         isLoading:false,
         errorMessage:"",

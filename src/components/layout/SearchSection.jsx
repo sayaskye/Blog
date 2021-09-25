@@ -31,7 +31,7 @@ const SearchSection = () => {
 
     return (
         <div className="rounded-2xl bg-main-blue/10 w-auto   mt-8 lg:mt-0 flex flex-col">
-            {/* <FormSearch/> */}
+            <FormSearch/>
             <span className=" text-white text-2xl text-center mt-6">Destacados</span>
             { isLoading?<PostSmallItemSkelleton/>:articlesToShow }
         </div>

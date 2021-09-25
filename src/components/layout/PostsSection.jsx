@@ -6,13 +6,20 @@ import { es } from 'date-fns/locale'
 import useArticlesStore from '../../zustand/stores/articles';
 import shallow from 'zustand/shallow'
 import PostBigItemSkelleton from '../common/PostBigItemSkelleton';
+import useGlobalArticlesStore from '../../zustand/stores/globalArticles';
 
 const PostsSection = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
         articles:state.articles, getArticles:state.getArticles, isLoading:state.isLoading, errorMessage:state.errorMessage, hasError:state.hasError, limit:state.limit
     }),shallow)
-    
-    let articlesFetch = articles
+
+    const {articlesFiltered, override} = useGlobalArticlesStore(state => ({
+        articlesFiltered:state.articlesFiltered, override:state.override
+    }),shallow)
+    let articlesFetch
+    override ? articlesFetch = articlesFiltered : articlesFetch = articles
+
+    /* articlesFetch = articles */
     
     const articlesToShow = articlesFetch.map((article) =>
         <PostBigItem 
