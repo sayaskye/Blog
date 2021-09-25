@@ -9,8 +9,6 @@ const useRecomendedStore = create(
             try {
                 set({isLoading:true, errorMessage:"", hasError:false,})
                 const recomendedResult = await apiCall({url:`${baseUrl}/categories/${slug}?_limit=${get().limit}&_sort=createdAt:DESC`})
-                //const recomendedResult = await apiCall({url:`${baseUrl}/categories/destacado`})
-                //console.log(recomendedResult);
                 set({recomended:recomendedResult.articles})
             } catch (error) {
                 set({recomended:[], hasError:true, errorMessage:"Algo ha pasado, verifica tu conexión..."})
