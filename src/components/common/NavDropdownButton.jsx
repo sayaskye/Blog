@@ -1,22 +1,19 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 import useCategoriesStore from '../../zustand/stores/categories';
 import useSubCategoriesStore from '../../zustand/stores/subCategories';
+import shallow from 'zustand/shallow'
 
 const NavDropdownButton = ({name,cat,subcat}) => {
 
     const {categories, getCategories, isLoadingCat, errorMessageCat, hasErrorCat} = useCategoriesStore(state=>({
         categories:state.categories, getCategories:state.getCategories, isLoadingCat:state.isLoadingCat, errorMessageCat:state.errorMessageCat, hasErrorCat:state.hasErrorCat
-    }))
+    }),shallow)
     const {subCategories, getSubCategories, isLoadingSub, errorMessageSub, hasErrorSub} = useSubCategoriesStore(state=>({
         subCategories:state.subCategories, getSubCategories:state.getSubCategories, isLoadingSub:state.isLoadingSub, errorMessageSub:state.errorMessageSub, hasErrorSub:state.hasErrorSub
-    }))
-    let categoriesFetch=categories
-    let subCategoriesFetch=subCategories
-    useEffect(() => {
-        getCategories().catch(null)
-        getSubCategories().catch(null)
-    }, [])
+    }),shallow)
+    if (categories===undefined) return null
+    
     return (
         <div className="border-black border-[1px] flex bg-gray-700 mx-2 my-2 rounded-lg text-center justify-center items-center p-4 hover:scale-[1.01] duration-500 transition ease-in hover:bg-main-blue/40 hover:border-white z-10 group">
 
@@ -29,7 +26,7 @@ const NavDropdownButton = ({name,cat,subcat}) => {
                 </button>
                 {cat &&
                     <ul className="absolute hidden group-hover:inline lg:group-hover:block bg-gray-700  ">
-                        {categoriesFetch.map((category) =>
+                        {categories.map((category) =>
                             <li key={category._id} className="">
                                 <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap  " to={`/categories/${category.slug}`}>
                                     { category.name }
@@ -40,7 +37,7 @@ const NavDropdownButton = ({name,cat,subcat}) => {
                 }
                 {subcat &&
                     <ul className="absolute hidden group-hover:inline lg:group-hover:block bg-gray-700  ">
-                        {subCategoriesFetch.map((subCategory) =>
+                        {subCategories.map((subCategory) =>
                             <li key={subCategory._id} className="">
                                 <Link className="  hover:bg-main-blue/40 duration-500 transition py-2 px-4 block whitespace-no-wrap  " to={`/subcategories/${subCategory.slug}`}>
                                     <span className="text-left">

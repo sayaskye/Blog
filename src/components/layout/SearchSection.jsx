@@ -4,11 +4,12 @@ import FormSearch from '../common/FormSearch';
 import format from 'date-fns/format';
 import { es } from 'date-fns/locale'
 import useRecomendedStore from '../../zustand/stores/recomended';
+import shallow from 'zustand/shallow'
 
 const SearchSection = () => {
     const {recomended, getRecomended, isLoading, errorMessage, hasError, limit} = useRecomendedStore(state => ({
         recomended:state.recomended, getRecomended:state.getRecomended, isLoading:state.isLoading, errorMessage:state.errorMessage, hasError:state.hasError, limit:state.limit
-    }))
+    }),shallow)
     useEffect(() => {
         getRecomended("destacado").catch(null)
     }, [limit])

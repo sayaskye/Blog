@@ -4,12 +4,12 @@ import ButtonLoadMore from '../common/ButtonLoadMore';
 import format from 'date-fns/format';
 import { es } from 'date-fns/locale'
 import useArticlesStore from '../../zustand/stores/articles';
-
+import shallow from 'zustand/shallow'
 
 const PostsSection = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
         articles:state.articles, getArticles:state.getArticles, isLoading:state.isLoading, errorMessage:state.errorMessage, hasError:state.hasError, limit:state.limit
-    }))
+    }),shallow)
     
     let articlesFetch = articles
     
