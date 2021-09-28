@@ -18,6 +18,12 @@ const PostsSection = () => {
     }),shallow)
     let articlesFetch
     override ? articlesFetch = articlesFiltered : articlesFetch = articles
+    let msgNothingFound=false
+    if(articlesFetch.length===0){
+        msgNothingFound=true
+    }else{
+        msgNothingFound=false
+    }
 
     /* articlesFetch = articles */
     
@@ -35,10 +41,16 @@ const PostsSection = () => {
     if(hasError){return errorMessage}
     
     return (
-        <div className="rounded-2xl bg-main-blue/10 w-auto flex flex-col justify-center items-center pb-7">
-            { isLoading?<PostBigItemSkelleton/>:articlesToShow }
+        <section className="rounded-2xl bg-main-blue/10 w-auto flex flex-col justify-center items-center pb-7">
+            { isLoading?<PostBigItemSkelleton/>:
+                (msgNothingFound? 
+                <span className="text-white text-base md:text-3xl text-center justify-center m-5">
+                    Lo siento, no existe ningun post que coincida con tu busqueda.
+                </span>:
+                articlesToShow)
+            }
             <ButtonLoadMore/>
-        </div>
+        </section>
     );
 }
  

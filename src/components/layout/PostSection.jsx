@@ -6,6 +6,7 @@ import { es } from 'date-fns/locale'
 import { Remarkable } from 'remarkable';
 import DOMPurify from 'dompurify'
 import PostLoadingSkelleton from '../common/PostLoadingSkelleton';
+import HelmetComponent from '../common/Helmet';
 
 const PostSection = () => {
     const {post} = usePostStore(state=>({post:state.post}))
@@ -15,7 +16,8 @@ const PostSection = () => {
     });
     const content = md.render(post.content)
     return (
-        <div className="rounded-2xl w-auto flex flex-col items-center pb-7">
+        <article className="rounded-2xl w-auto flex flex-col items-center pb-7">
+            <HelmetComponent title={post.title}/>
             <Title title={post.title} />
             <div className="text-white">
                 <div className="flex sm:flex-row flex-col justify-between  mb-8 mx-2">
@@ -31,7 +33,7 @@ const PostSection = () => {
                     
                 </div>
             </div>
-        </div>
+        </article>
     );
 }
  

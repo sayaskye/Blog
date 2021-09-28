@@ -13,7 +13,7 @@ const Footer = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth' });
     }
     return (
-        <div className="bg-gray-900 text-white">
+        <footer className="bg-gray-900 text-white">
             <div className="container mx-auto flex flex-col justify-items-center">
                 <button className="text-center my-10 text-xl font-bold uppercase" onClick={goBackToTop}>
                     Volver arriba
@@ -32,7 +32,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
  

@@ -6,7 +6,7 @@ import Footer from '../../components/layout/Footer'
 import useArticlesStore from '../../zustand/stores/articles'
 import useGlobalArticlesStore from '../../zustand/stores/globalArticles';
 import shallow from 'zustand/shallow'
-
+import HelmetComponent from '../../components/common/Helmet';
 const CategoriesSlug = () => {
     const { slug } = useParams();
     const {articles, getArticlesByCat, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
@@ -21,6 +21,7 @@ const CategoriesSlug = () => {
     }, [limit,slug])
     return ( 
         <>
+            <HelmetComponent title={slug.toUpperCase()}/>
             <Hero exist={true}/>   
             <Posts/>
             <Footer/>

@@ -25,7 +25,7 @@ const Navbar = () => {
     }
     return ( 
         <>
-            <div className="flex flex-row bg-gray-800 rounded-xl border-[1px] border-main-blue w-full justify-between shadow-2xl relative">
+            <nav className="flex flex-row bg-gray-800 rounded-xl border-[1px] border-main-blue w-full justify-between shadow-2xl relative">
                 <div className=" lg:flex justify-start items-center flex-1 hidden ">
                     <NavButton text="Inicio" route="/"></NavButton>
                     <NavDropdownButton name="Categoria" cat={true}/>
@@ -50,7 +50,7 @@ const Navbar = () => {
                     <NavSocial route="/YoutubeNav.svg" alt="Youtube" link="https://www.youtube.com/channel/UC7ct6s_unpGb1TSM6xJgUwA"></NavSocial>
                     <NavSocial route="/TwitterNav.svg" alt="Twitter" link="https://twitter.com/ChaoCazares"></NavSocial>
                 </div>
-            </div>
+            </nav>
 
             {
                 isOpen &&
