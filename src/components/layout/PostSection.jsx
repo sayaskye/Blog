@@ -16,24 +16,27 @@ const PostSection = () => {
     });
     const content = md.render(post.content)
     return (
-        <article className="rounded-2xl w-auto flex flex-col items-center pb-7">
+        <>
             <HelmetComponent title={post.title}/>
-            <Title title={post.title} />
-            <div className="text-white">
-                <div className="flex sm:flex-row flex-col justify-between  mb-8 mx-2">
-                    <p>Publicado por: <span className="">{post.author.name}</span></p>
-                    <p>Fecha de publicación: <span className="capitalize">{format(new Date(post.createdAt), 'dd MMMM yyyy', { locale: es })}</span></p>
+            <article className="rounded-2xl w-auto flex flex-col items-center pb-7 px-2">
+                <Title title={post.title} />
+                <div className="text-white w-full">
+                    <div className="flex sm:flex-row flex-col justify-between  mb-8 mx-2">
+                        <p>Publicado por: <span className="">{post.author.name}</span></p>
+                        <p>Fecha de publicación: <span className="capitalize">{format(new Date(post.createdAt), 'dd MMMM yyyy', { locale: es })}</span></p>
+                    </div>
+                    <div className="flex flex-row justify-center items-center aspect-w-16 aspect-h-7 mx-2">
+                        <img src={post.image.url} alt={post.title}  className="object-cover"/>
+                    </div>
+                    <hr className="border-main-blue border-[1px] my-8 "/>
+                    {/* <div id="innerHTML" className="mx-2 my-8" dangerouslySetInnerHTML={{__html:content}}> */}
+                    <div id="innerHTML" className="mx-auto my-8 prose md:prose-md lg:prose-lg xl:prose-xl 2xl:prose-2xl text-white " 
+                    dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(content)}}> 
+                        
+                    </div>
                 </div>
-                <div className="flex flex-row justify-center items-center aspect-w-16 aspect-h-7 mx-2">
-                    <img src={post.image.url} alt={post.title}  className="object-cover"/>
-                </div>
-                <hr className="border-main-blue border-[1px] my-8 mx-2"/>
-                {/* <div id="innerHTML" className="mx-2 my-8" dangerouslySetInnerHTML={{__html:content}}> */}
-                 <div id="innerHTML" className="mx-2 my-8" dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(content)}}> 
-                    
-                </div>
-            </div>
-        </article>
+            </article>
+        </>
     );
 }
  

@@ -4,6 +4,15 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            code: {
+              color: '#3AB5EF',
+            },
+          },
+        },
+      },
       screens: {
         'ssm': '450px',
       },
@@ -26,6 +35,7 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography'),
     // ...
   ],
 }
