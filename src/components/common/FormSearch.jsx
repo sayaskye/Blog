@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import useGlobalArticlesStore from '../../zustand/stores/globalArticles'
 import shallow from 'zustand/shallow'
+import { useLocation } from 'react-router'
 
 const FormSearch = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError} = useGlobalArticlesStore(state => ({
@@ -20,9 +21,18 @@ const FormSearch = () => {
         e.preventDefault();
         getArticles(search.search)
     }
+    let location = useLocation();
+    let newLocation = location.pathname.split("/")
+    let show
 
+    if(newLocation[1]=="articles"){
+        show=false
+    }
+    else{
+        show=true
+    }
     return (
-        <form className="mt-10 text-gray-100 flex justify-center items-center" onSubmit={handleSubmit}>
+        show&&<form className="mt-10 text-gray-100 flex justify-center items-center" onSubmit={handleSubmit}>
             <div className="relative">
                 <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                     <button  type="submit" title="search" className="p-1 focus:outline-none focus:ring" >
