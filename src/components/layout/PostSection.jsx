@@ -52,7 +52,7 @@ const PostSection = () => {
                     {lastPost &&
                     <div className="rounded-2xl bg-main-blue/10">
                         <div className="flex flex-col text-center text-white ">
-                            <span className="mt-5">Este es mi post anterior relacionado, quizas te pueda ineteresar</span>
+                            <span className="mt-5">Este es el post relacionado anterior, quizas te pueda interesar.</span>
                             <div className="flex flex-col lg:flex-row">
                                 <div className=" w-full lg:w-1/2">
                                     <PostSmallItem 
