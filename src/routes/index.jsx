@@ -5,6 +5,7 @@ import PostsSlug from "../views/Dynamic/PostsSlug";
 import CategoriesSlug from "../views/Dynamic/CategoriesSlug";
 import SubCategoriesSlug from "../views/Dynamic/SubCategoriesSlug";
 import ScrollToTop from '../components/hooks/ScrollToTop'
+import ErrorPage from "../views/404";
 
 export default function Routes() {
   return (
@@ -22,6 +23,9 @@ export default function Routes() {
         </Route>
         <Route path="/subcategories/:slug">
           <SubCategoriesSlug/>
+        </Route>
+        <Route path="*">
+          <ErrorPage/>
         </Route>
       </Switch>
     </Router>

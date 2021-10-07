@@ -7,6 +7,7 @@ import useArticlesStore from '../../zustand/stores/articles';
 import shallow from 'zustand/shallow'
 import PostBigItemSkelleton from '../common/PostBigItemSkelleton';
 import useGlobalArticlesStore from '../../zustand/stores/globalArticles';
+import { Redirect } from 'react-router';
 
 const PostsSection = () => {
     const {articles, getArticles, isLoading, errorMessage, hasError, limit} = useArticlesStore(state => ({
@@ -38,7 +39,7 @@ const PostsSection = () => {
         key={article._id}/>
     );
 
-    if(hasError){return errorMessage}
+    if(hasError){return <Redirect to="/"/>}
     
     return (
         <section className="rounded-2xl bg-main-blue/10 w-auto flex flex-col justify-center items-center pb-7">

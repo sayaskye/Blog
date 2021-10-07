@@ -5,6 +5,7 @@ import Hero from '../../components/layout/Hero'
 import Footer from '../../components/layout/Footer'
 import Post from '../../components/layout/Post'
 import shallow from 'zustand/shallow'
+import { Redirect } from 'react-router';
 const PostsSlug = () => {
     const { slug } = useParams();
     const {getPost, isLoading, errorMessage, hasError} = usePostStore(state=>({
@@ -15,7 +16,7 @@ const PostsSlug = () => {
         getPost(slug).catch(null)
     }, [slug])
     
-    if (hasError) return errorMessage
+    if (hasError) return <Redirect to="/"/>
     return ( 
         <div>
             <Hero exist={false}/>   
