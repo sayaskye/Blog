@@ -16,6 +16,12 @@ const PostSection = () => {
         html:true, 
     });
     const content = md.render(post.content)
+    let lastPost
+    if (post?.article?.title) {
+        lastPost=true
+    }else{
+        lastPost=false
+    }
     return (
         <>
             <HelmetComponent title={post.title}/>
@@ -43,6 +49,7 @@ const PostSection = () => {
                             </div>
                         </div>
                     </article>
+                    {lastPost &&
                     <div className="rounded-2xl bg-main-blue/10">
                         <div className="flex flex-col text-center text-white ">
                             <span className="mt-5">Este es mi post anterior relacionado, quizas te pueda ineteresar</span>
@@ -61,7 +68,7 @@ const PostSection = () => {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>}
                 </>
             }
             
