@@ -19,7 +19,7 @@ const Home = () => {
     }, [limit])
     return ( 
         <>
-            <HelmetComponent title="INICIO"/>
+            <HelmetComponent title="Inicio"/>
             <Hero exist={true}/>
             {isLoading && 
                 <div className="bg-gray-600 flex flex-col justify-center items-center px-4">

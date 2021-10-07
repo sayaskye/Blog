@@ -21,7 +21,7 @@ const SubCategoriesSlug = () => {
     }, [limit,slug])
     return ( 
         <>
-            <HelmetComponent title={slug.toUpperCase()}/>
+            <HelmetComponent title={slug}/>
             <Hero exist={true}/>   
             <Posts/>
             <Footer/>
