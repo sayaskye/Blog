@@ -27,7 +27,7 @@ const Footer = () => {
 
                     <div className="flex  items-center justify-items-center">
                         <FooterSocial route="/LinkedinFooter.svg" alt="Linkedin" link="https://www.linkedin.com/in/andres-cazares-web/"></FooterSocial>
-                        <FooterSocial route="/YoutubeFooter.svg" alt="Youtube" link="https://www.youtube.com/channel/UC7ct6s_unpGb1TSM6xJgUwA"></FooterSocial>
+                        <FooterSocial route="/YoutubeFooter.svg" alt="Youtube" link="https://www.youtube.com/channel/UC1Ai2CWXfgV_Clefkm1b5bw"></FooterSocial>
                         <FooterSocial route="/TwitterFooter.svg" alt="Twitter" link="https://twitter.com/ChaoCazares"></FooterSocial>
                     </div>
                 </div>
