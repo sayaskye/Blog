@@ -47,7 +47,7 @@ const Navbar = () => {
                 </NavLink>
                 <div className="lg:flex flex-row justify-end items-center lg:flex-1 hidden">
                     <NavSocial route="/LinkedinNav.svg" alt="Linkedin" link="https://www.linkedin.com/in/andres-cazares-web/"></NavSocial>
-                    <NavSocial route="/YoutubeNav.svg" alt="Youtube" link="https://www.youtube.com/channel/UC7ct6s_unpGb1TSM6xJgUwA"></NavSocial>
+                    <NavSocial route="/YoutubeNav.svg" alt="Youtube" link="https://www.youtube.com/channel/UC1Ai2CWXfgV_Clefkm1b5bw"></NavSocial>
                     <NavSocial route="/TwitterNav.svg" alt="Twitter" link="https://twitter.com/ChaoCazares"></NavSocial>
                 </div>
             </nav>
@@ -66,7 +66,7 @@ const Navbar = () => {
                     </a>
                     <div className="flex flex-row justify-center items-center my-10">
                         <NavSocial route="/LinkedinNav.svg" alt="Linkedin" link="https://www.linkedin.com/in/andres-cazares-web/"></NavSocial>
-                        <NavSocial route="/YoutubeNav.svg" alt="Youtube" link="https://www.youtube.com/channel/UC7ct6s_unpGb1TSM6xJgUwA"></NavSocial>
+                        <NavSocial route="/YoutubeNav.svg" alt="Youtube" link="https://www.youtube.com/channel/UC1Ai2CWXfgV_Clefkm1b5bw"></NavSocial>
                         <NavSocial route="/TwitterNav.svg" alt="Twitter" link="https://twitter.com/ChaoCazares"></NavSocial>
                     </div>
                 </div>
