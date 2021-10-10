@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const PostBigItem = ({title, excerpt, date, author, img, slug}) => {
     return (
-        <Link to={`/articles/${slug}`} className=" hover:bg-white/[0.08] flex flex-col md:flex-row lg:mx-5 mt-5 duration-500 transition w-[95%] md:w-auto rounded-xl">
+        <Link to={`/articles/${slug}`} className=" hover:bg-white/[0.08] flex flex-col md:flex-row mx-5 mt-5 duration-500 transition w-[95%] md:w-auto rounded-xl">
 
             <div className="m-2 flex flex-row justify-center items-center aspect-w-3 aspect-h-1 md:aspect-w-16 md:aspect-h-3 2xl:aspect-h-2 md:w-1/3 relative overflow-hidden rounded-lg border-main-blue border-[1px]">
                 <img src={img}  alt="imagen"  className="object-cover  rounded-lg absolute hover:scale-110 duration-500 transition"/>
