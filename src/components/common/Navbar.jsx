@@ -31,7 +31,7 @@ const Navbar = () => {
                     <NavDropdownButton name="Categoria" cat={true}/>
                     <NavDropdownButton name="Tema" subcat={true}/>
                     {/* <NavButton text="Sobre mi" route="/about"></NavButton> */}
-                    <a href="https://andrescazares.netlify.app/" target="_blank" rel="noopener" className="font-bold border-black border-[1px] flex bg-gray-700 mx-2 my-2 rounded-lg text-center justify-center items-center p-4 hover:scale-[1.01] duration-500 transition hover:bg-main-blue/40 hover:border-white">
+                    <a href="https://www.andrescazares.com/" target="_blank" rel="noopener" className="font-bold border-black border-[1px] flex bg-gray-700 mx-2 my-2 rounded-lg text-center justify-center items-center p-4 hover:scale-[1.01] duration-500 transition hover:bg-main-blue/40 hover:border-white">
                         <span className="text-white ">
                             Portafolio
                         </span>
