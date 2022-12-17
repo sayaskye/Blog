@@ -4,7 +4,7 @@ const Hero = ({exist}) => {
     return (
         <div className="bg-home-background bg-cover bg-bottom ">
             <div className="container mx-auto pb-16 pt-6 sm:pt-11 md:pt-16 flex flex-col">
-                {/* <Navbar/> */}
+                <Navbar/>
                 {exist&&
                     <div className="bg-main-blue/[5%] rounded-2xl mt-4 flex flex-col backdrop-blur-sm">
                         <span className="my-12 text-center text-main-blue text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold">Andrés Cazares</span>
